@@ -1,5 +1,12 @@
 # Process Feedback Local changes
 
+## 0.5.3 - 2026-10-12
+
+- Release ZIPs now use `processfeedback` as the root folder, so they can be installed with "Install plugin from
+  ZIP file".
+- Stops the "Too many parameters" debugging message during upgrade when updating the Process Feedback course
+  custom fields.
+
 ## 0.5.2 - 2026-10-01
 
 - Uploads submission process data through Moodle's standard upload repository (`repository_ajax.php`) instead of the

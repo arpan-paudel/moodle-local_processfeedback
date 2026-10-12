@@ -397,7 +397,7 @@ final class course_settings {
 
         $definition = self::ACTIVITY_FIELDS[$modname];
         $category = \core_customfield\category_controller::create((int) $fieldrecord->categoryid);
-        $field = \core_customfield\field_controller::create((int) $fieldrecord->id, $fieldrecord, $category);
+        $field = \core_customfield\field_controller::create(0, $fieldrecord, $category);
         $field->set('name', get_string($definition['name'], 'local_processfeedback'));
         $field->set('description', '');
         $field->set('descriptionformat', FORMAT_HTML);
