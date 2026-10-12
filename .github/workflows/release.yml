@@ -20,7 +20,7 @@ concurrency:
 
 env:
   PLUGIN_COMPONENT: local_processfeedback
-  PLUGIN_NAME: local_processfeedback
+  PLUGIN_NAME: processfeedback
   PACKAGE_NAME: moodle-local_processfeedback
   PHP_VERSION: "8.3"
 
@@ -99,6 +99,8 @@ jobs:
 
           grep -q "\$plugin->component = '${PLUGIN_COMPONENT}'" version.php
           grep -q "\$plugin->release = '" version.php
+          # Moodle's ZIP installer requires the root folder to be the plugin name without its type prefix.
+          test "${PLUGIN_COMPONENT#*_}" = "${PLUGIN_NAME}"
           grep -q "local_processfeedback/main" classes/hook/before_footer_html_generation.php
           grep -q "local_processfeedback_get_bootstrap_data" db/services.php
 
